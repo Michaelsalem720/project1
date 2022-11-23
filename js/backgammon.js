@@ -1,4 +1,4 @@
-let setUp = [2,0,0,0,0,-5, 0,-3,0,0,0,5,  -5,0,0,0,3,0, 5,0,0,0,0,-2];
+let setUp = [0,     2,0,0,0,0,-5,       0,-3,0,0,0,5,       -5,0,0,0,3,0,       5,0,0,0,0,-2,       0];
 let nextMove = structuredClone(setUp);
 let roll1;
 let roll2;
@@ -14,12 +14,15 @@ let team1Turn = true
 let body = document.querySelector("body")
 let roll = document.querySelector("#roll")
 let ok = document.querySelector("#ok")
+
+
 body.addEventListener("load",setUpPieces(setUp))
 // ok.addEventListener("load",done())
 ok.addEventListener("click",done())
 function done (){
     addRollClick()
     removePiecesClick()
+    // team1Turn = !team1Turn
 
 }
 function addRollClick(){
@@ -28,8 +31,7 @@ function addRollClick(){
 function removeRollClick(){
     roll.removeEventListener("click",rollDice)  
 }
-function addPiecesClick(){//
-    // let clickBtn = document.querySelectorAll(".spot")
+function addPiecesClick(){
     for(let i=0;i<setUp.length;i++){
         let clickBtn = document.getElementById(i)
         clickBtn.addEventListener("click",getPiece)
@@ -56,7 +58,8 @@ function setUpPieces(setUp){
             }
         }
     }
-}
+}///end of setUpPieces
+
 function rollDice(){
     roll.removeEventListener("click",rollDice)
     roll1 = Math.floor(Math.random()*6)+1
@@ -83,84 +86,80 @@ function rollDice(){
         console.log([dice1,dice2])
         return dice
     }
-// console.log(dice)
-}
+}//end of rollDice
 function getPiece(event){
     // for(let i=0;i<count;i++){
         let element = event.target;
         let elementClass = element.className;
         let pattern = /\**piece\**/;
-        // pattern.test(elementClass);
         if(pattern.test(elementClass)){
             index = element.parentElement.id;
         }
         else{
             index = element.id;
         }
+        movePiece();
         // console.log(dice3);
         // return 
-        movePiece(index);
     // }
 }
-function movePiece(index){
-    if(team1Turn){
+function movePiece(){
+    if(team1Turn){//team 1's turn
         if(nextMove[index]<=0){
             return // wrong piece/not a piece
         }
         else{
-            // if(nextMove[index]===0){
-            //     alert("click on a piece")
-            // }
-            // else 
-            if(nextMove[index]<0){
-                newIndex = index-dice1
-                if(nextMove[index]*nextMove[newIndex]===Math.abs(nextMove[index])*(-1)){
-                    //piece is hit
-                }
-                else if(nextMove[index]*nextMove[newIndex]<0){
-                    //can't move
-                    return
-                }
-                else if(nextMove[index]*nextMove[newIndex]>0){
-                    //regular move
-
-                }
-                else{
-                    sum = 0
-                    for(let i=0;i<18;i++){
-                        if(nextMove[i]>0){
-                            sum+=nextMove[i]
-                        }
-                    }
-                    if(sum>0){
-                        //illegal move
-                        return
-                    }
-                    else{
-                        //eat peices
-                    }
-                }
-            console.log(nextMove[index])
-            console.log(++nextMove[index])
-            console.log(index)
-            console.log(index-dice1)
-            console.log(nextMove[newIndex])
-                nextMove = nextMove
-                [index]
-                --nextMove[index-dice1]
+            newIndex = index-(-dice1)
+            if(newIndex)
+            if(nextMove[index]*nextMove[newIndex]===Math.abs(nextMove[index])*(-1)){/////piece is hit
+                nextMove[index]--
+                nextMove[newIndex]=1
+                nextMove[25]--
+            }
+            else if(nextMove[index]*nextMove[newIndex]<0){ /////can't move
+                return
+            }
+            else if(nextMove[index]*nextMove[newIndex]>=0 && newIndex !==25){ /////regular move
+                nextMove[index]--
+                nextMove[newIndex]++
             }
             else{
+                sum = 0
+                for(let i=0;i<19;i++){
+                    if(nextMove[i]>0){
+                        sum+=nextMove[i]
+                    }
+                }
+                if(sum>0){
+                    return//illegal move
+                }
+                else{
+                    if(dice1<25-index){//regular move
+                        nextMove[index]--
+                        nextMove[newIndex]++
+                    }
+                    else if(dice1 === 25-index){//regular eat
+                        nextMove[index]--
+                        //fill sidebar
+                    }
+                    else{//check legal eat
+                        let homeSum = 0
+                        for(let i=0;i<index-19;i++){
+                            homeSum+=nextMove[19+i]
+                        }
 
-            console.log(nextMove[index])
-            console.log(++nextMove[index])
-            console.log(index)
-            console.log(index-(-dice1))
-                --nextMove[index]
-                ++nextMove[index+dice+count]
+                        if(homeSum>0){
+                            return//illegal eat
+                        }
+                        else{//eat
+                            nextMove[index]--
+                            //fill sidebar
+                        }
+                    }
+                }
             }
         }
     }
-    // console.log(nextMove)
-
-
+    console.log(nextMove)
+    setUpPieces(nextMove)
 }
