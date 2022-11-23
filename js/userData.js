@@ -1,12 +1,9 @@
-let registerButton=document.querySelector('#register');
 let signUpButton=document.querySelector('#signUp');
-let logInButton=document.querySelector('#logIn');
+let logInButton=document.querySelector('.logIn');
 signUpButton.addEventListener('click',processInput);
-signUpButton.addEventListener("click",returnToHomePage);
 logInButton.addEventListener("click",returnToHomePage);
-registerButton.addEventListener('click',goToSignUp);
 
-let usernames=[
+let admin=
     {
         username:'admin',
         password:'admin',
@@ -15,9 +12,9 @@ let usernames=[
         gender:'male',
         age:99
     }
-];
+;
 
-localStorage.setItem('admin',JSON.stringify(usernames));
+localStorage.setItem('admin',JSON.stringify(admin));
 
 function usersFactory(username,password,name,email,gender,age){
     let user={
@@ -28,9 +25,13 @@ function usersFactory(username,password,name,email,gender,age){
     gender:gender,
     age:age
     };
-    usernames.push(user);
-    // let count = 1++
-    localStorage.setItem(user.name,JSON.stringify(usernames[usernames.length-1]));
+    if (signUpValidation(user)) {
+        localStorage.setItem(user.username, JSON.stringify(user));
+        alert('Registered successfully!\nWelcome to our website!');
+        returnToHomePage();
+    } else {
+        alert('Invalid data. Please try again');
+    }
 }
 
 function processInput(){
@@ -43,13 +44,20 @@ function processInput(){
     usersFactory(username,password,name,email,gender,age);
 }
 
+function signUpValidation(userObject) {
+    let checker = true;
+    checker *= /[a-z]+\w*$/i.test(userObject.username);
+    checker *= /.{8,16}/.test(userObject.password);
+    checker *= /[a-z\s]{2,16}/.test(userObject.name);
+    checker *= /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(userObject.email);
+    checker *= /(male)|(female)/.test(userObject.gender);
+    if (userObject.age >= 0 && userObject.age <= 120 && userObject.age!=undefined) {
+        checker *= true;
+    } else checker *= false;
+    return checker;
+}
+
 function returnToHomePage(){
-    window.location.href='../index.html';
+    window.location.href='/project1/index.html';
 }
-
-function goToSignUp(){
-    window.location.href='../html/signUp.html';
-}
-
-
 

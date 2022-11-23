@@ -5,57 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Games</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header>
-        <h1></h1>
+        <h1>Michael and Yehonatan's games</h1>
     </header>
     <main>
-        <!-- <form action="get"> -->
-            <div>
+        <div class="form">
+            <div class="inputDiv">
                 <label for="name">Name: 
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" class="inputBox">
                 </label>
             </div>
-            <div>
+            <div class="inputDiv">
                 <label for="email">Email: 
-                    <input type="email" name="email" id="email">
+                    <input type="email" name="email" id="email" class="inputBox">
                 </label>
             </div>
-            <div>
+            <div class="inputDiv">
                 <label for="username">User Name: 
-                    <input type="text" name="username" id="username">
+                    <input type="text" name="username" id="username" class="inputBox">
                 </label>
             </div>
-            <div>
-                <label for="password">Password
-                    <input type="password" name="password" id="password">
+            <div class="inputDiv">
+                <label for="password">Password:
+                    <input type="password" name="password" id="password" class="inputBox">
                 </label>
             </div>
-            <div>
-                <label for="passwordCheck">ReEnter Password
-                    <input type="password" name="passwordCheck" id="passwordCheck">
+            <div class="inputDiv">
+                <label for="passwordCheck">ReEnter Password:
+                    <input type="password" name="passwordCheck" id="passwordCheck" class="inputBox">
                 </label>
-            </div>
-            <div>
+            </div >
+            <div class="inputDiv">
                 <label for="male"> Male
                     <input type="radio" name="gender" id="gender" value="male">
                 </label>
-                <label for="female"> female
+                <label for="female"> Female
                     <input type="radio" name="gender"  id="gender" value="female">
                 </label>
             </div>
-            <div>
-                <label for="age">
+            <div class="inputDiv">
+                <label for="age">Age:
                     <input type="number" name="age" id="age">
                 </label>
-            </div>
-            <div>
-                <button id="logIn">Log In</button>
+            </div class="inputDiv">
+            <div class="buttonDiv">
+                <button class="logIn">Log In</button>
                 <button id="signUp">Sign Up</button>
             </div>
-        <!-- </form> -->
+        </div>
     </main>
     <!-- <script src="../js/index.js"></script> -->
     <script src="../js/userData.js"></script>
