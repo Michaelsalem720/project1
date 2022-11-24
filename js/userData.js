@@ -24,7 +24,9 @@ function usersFactory(username, password,passwordCheck, name, email, gender, age
         name: name,
         email: email,
         gender: gender,
-        age: age
+        age: age,
+        scoreMemoryGame: 100,
+        scoreBackgammon:0
     };
     if (signUpValidation(user)) {
         localStorage.setItem(user.username, JSON.stringify(user));
