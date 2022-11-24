@@ -68,6 +68,6 @@ function signUpValidation(userObject) {
 }
 
 function returnToHomePage() {
-    window.location.href = '/project1/index.html';
+    window.location.href = '../index.html';
 }
 

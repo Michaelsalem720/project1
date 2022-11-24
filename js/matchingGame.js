@@ -17,7 +17,7 @@ function shuffleCards() {
         let randomIndex = Math.floor(Math.random() * emojisArr.length);
         frontCollection[i].textContent = emojisArr[randomIndex];
         emojisArr.splice(randomIndex, 1);
-    }location.reload
+    }
 }
 
 function flipCard(event) {
@@ -56,7 +56,6 @@ function flipBack(card1,card2) {
     card2.nextElementSibling.style.display = 'inline-block';
     card1.classList.remove('flipped');
     card2.classList.remove('flipped');
-
 }
 
 function updateScore1() {
