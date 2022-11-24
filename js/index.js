@@ -8,7 +8,7 @@ logInButton.addEventListener('click', logInValidation);
 // }
 
 function goToSignUp(){
-    window.location.href='/project1/html/signUp.html';
+    window.location.href='html/signUp.html';
 }
 
 function logInValidation() {
@@ -19,7 +19,7 @@ function logInValidation() {
         let username = userInfo['username'].value;
         let password = userInfo['password'].value;
         if (passwordText == password && usernameText == username); {
-            window.location.href = '/project1/html/gameDirectory.html';
+            window.location.href = 'html/gameDirectory.html';
             sessionStorage.setItem('currentUser', localStorage.getItem(usernameText));
         }
     } else {
