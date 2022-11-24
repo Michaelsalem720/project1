@@ -4,10 +4,10 @@
     --pieceSize: calc(var(--maxSize)/15);
     --woodColor: #5B270B;
     --sideWoodColor: #A55B53;
-    --triangleColor1: black;
-    --triangleColor2: red;
+    --triangleColor1: #785115;
+    --triangleColor2: #DCB579;
     --pieceColor1: black;
-    --pieceColor2: red;
+    --pieceColor2: #FFEFD6;
 }
 *{
     margin: 0;
@@ -129,4 +129,49 @@ button{
     width: var(--pieceSize);
     height: var(--pieceSize);
     border-radius: 20%;
+}
+.triangle{
+    width: 0; 
+    height: 0; 
+    border-left: calc(var(--pieceSize)/2) solid transparent;
+    border-right: calc(var(--pieceSize)/2) solid transparent;
+    
+    border-top: var(--height) solid var(--triangleColor1);
+    position: absolute;
+}
+.other{
+    border-top-color: var(--triangleColor2);
+}
+.one{
+    left: calc(var(--pieceSize)*2)
+}
+.two{
+    left: calc(var(--pieceSize)*3)
+}
+.three{
+    left: calc(var(--pieceSize)*4)
+}
+.four{
+    left: calc(var(--pieceSize)*5)
+}
+.five{
+    left: calc(var(--pieceSize)*6)
+}
+.six{
+    left: calc(var(--pieceSize)*8)
+}
+.seven{
+    left: calc(var(--pieceSize)*9)
+}
+.eight{
+    left: calc(var(--pieceSize)*10)
+}
+.nine{
+    left: calc(var(--pieceSize)*11)
+}
+.ten{
+    left: calc(var(--pieceSize)*12)
+}
+.eleven{
+    left: calc(var(--pieceSize)*13)
 }
