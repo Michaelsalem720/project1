@@ -12,18 +12,28 @@ let counter = 0
 let index;
 let newIndex
 let team1Turn = false
+let doublingCube = 1
 let body = document.querySelector("body")
 let roll = document.querySelector("#roll")
 let ok = document.querySelector("#ok")
 let undo = document.querySelector("#undo")
+let double = document.querySelector("#double")
+let diceSpot = document.querySelector("#diceSpot")
+let Player1 = "Player 1";
+//JSON.parse(sessionStorage.getItem('currentUser').name)
+let Player2 = "Player 2";
+let winner
+let loser
 
 undo.addEventListener("click",undoMove)
 body.addEventListener("load",setUpPieces(setUp))
-// ok.addEventListener("load",done())
+body.addEventListener("load",done)
 ok.addEventListener("click",done())
 function done (){
+    console.log("next turn")
     addRollClick()
     removePiecesClick()
+    addDoubleClick()
     setUp = structuredClone(nextMove)
     team1Turn = !team1Turn
     console.log("done")
@@ -37,8 +47,31 @@ function undoMove (){
     removeOkClick()
     addPiecesClick()
 }
+function doubleGame(){
+    console.log("x2")
+    let ask = confirm()
+    if(ask){
+        doublingCube *(2*ask)
+    }
+    else{
+        if(team1Turn){
+            winner = Player1
+            loser = Player2
 
+        }
+        else{
+            winner = Player2
+            loser = Player1
 
+        }
+        alert(`Congrats!!!\n${winner} won this round!\nBetter luck next time, ${loser}`)
+        newGame()
+    }
+}
+function newGame(){
+    location.reload()
+
+}
 function rollDice(){
     roll.removeEventListener("click",rollDice)
     roll1 = Math.floor(Math.random()*6)+1
@@ -251,6 +284,12 @@ function addOkClick(){
 }
 function removeOkClick(){
     ok.removeEventListener("click",done)  
+}
+function addDoubleClick(){
+    double.addEventListener("click",doubleGame)  
+}
+function removeDoubleClick(){
+    double.removeEventListener("click",doubleGame)  
 }
 function addUndoClick(){
     undo.addEventListener("click",undo)  

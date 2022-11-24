@@ -77,9 +77,18 @@
     width: var(--pieceSize);
     height: var(--height);
 
+
 }
 .bottomSpot{
     justify-content: flex-end;
+    /* width: 0;
+    height: 0;
+    border-color: transparent;
+    border-top: 0;
+    border-left: calc(var(--pieceSize)/2);
+    border-right: calc(var(--pieceSize)/2);
+    border-bottom: calc(var(--height)/2);
+    border-bottom-color: blue; */
 
 }
 .side{
@@ -106,5 +115,18 @@ button{
     margin: 2px;
     background-color: white;
     padding: 5px 10px;
+    border-radius: 5px;
 
+}
+#diceSpot2{
+    position: absolute;
+    z-index: 4;
+    font-size: 36;
+    left: calc(var(--height) - var(--pieceSize) / 2);
+    top: var(--height);
+    display: flex;
+    background-color: blue;
+    width: var(--pieceSize);
+    height: var(--pieceSize);
+    border-radius: 20%;
 }
