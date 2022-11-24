@@ -2,7 +2,8 @@
     --maxSize: min(100vw, 100vh);
     --height: calc(var(--maxSize)/2);
     --pieceSize: calc(var(--maxSize)/15);
-    --woodColor: #A55B53;
+    --woodColor: #5B270B;
+    --sideWoodColor: #A55B53;
     --triangleColor1: black;
     --triangleColor2: red;
     --pieceColor1: black;
@@ -19,15 +20,14 @@
     z-index: -2;
     display: flex;
     justify-content: space-between;
+    overflow: hidden;
 }
 #leftHome, #rightHome, #middle{
     height: calc(var(--height)*2);
-    background-color: lightblue;
 
 }
 
 #rightSide, #leftSide{
-    /* background-color: lightcoral; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -48,16 +48,11 @@
 }
 #bottomLeft, #bottomRight{
     display: flex;
-    /* justify-content: space-between; */
-    /* align-items: flex-end; */
-    /* height: var(--height); */
     height: var(--height);
     flex-direction: row-reverse;
 
 }
 .piece{
-
-    /* background-color:wheat; */
     /* width: var(--maxWidth); */
     width: var(--pieceSize);
     height: var(--pieceSize);
@@ -65,21 +60,51 @@
     border: 1px solid green;
     /* flex: 1; */
     z-index: 2;
+    
 
 }
 .team1{
     background-color: var(--pieceColor1);
-    /* background-color: red; */
 }
 .team2{
     background-color: var(--pieceColor2);
-    /* background-color: black; */
 }
 .spot{
     /* display: flex; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     width: var(--pieceSize);
     height: var(--height);
+
+}
+.bottomSpot{
+    justify-content: flex-end;
+
 }
 .side{
-    background-color: aqua;
+    background-color: var(--sideWoodColor);
+}
+#rightHome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+button{
+    margin: 5px 0;
+    padding: 0;
+}
+#diceSpot{
+    position: absolute;
+    z-index: 4;
+    font-size: 36;
+    left: calc(var(--height)/3);
+    top: var(--height);
+    display: flex;
+}
+.dice{
+    margin: 2px;
+    background-color: white;
+    padding: 5px 10px;
+
 }

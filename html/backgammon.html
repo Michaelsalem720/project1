@@ -9,7 +9,9 @@
 </head>
 <body>
     <div  id="board" class="side">
-        <div id="leftHome" class="spot side">L</div>
+        <!-- <div id="topBar" class="side topBottom"></div> -->
+        <!-- <div id="middleBar"> -->
+            <div id="leftHome" class="spot side"></div>
             <div id="leftSide">
                 <div class="top left" id="topLeft">
                     <div class="spot" id="1">1</div>
@@ -19,16 +21,24 @@
                     <div class="spot" id="5">5</div>
                     <div class="spot" id="6">6</div>
                 </div> 
+                <div id="diceSpot">
+                    <!-- 
+                    <div id="dice1" class="dice">1</div>
+                    <div id="dice2" class="dice">2</div>
+                    <div id="dice3" class="dice">3</div>
+                    <div id="dice4" class="dice">4</div>
+                     -->
+                </div>
                 <div class="bottom left" id="bottomLeft">
-                    <div class="spot" id="19">19</div>
-                    <div class="spot" id="20">20</div>
-                    <div class="spot" id="21">21</div>
-                    <div class="spot" id="22">22</div>
-                    <div class="spot" id="23">23</div>
-                    <div class="spot" id="24">24</div>
+                    <div class="spot bottomSpot" id="19">19</div>
+                    <div class="spot bottomSpot" id="20">20</div>
+                    <div class="spot bottomSpot" id="21">21</div>
+                    <div class="spot bottomSpot" id="22">22</div>
+                    <div class="spot bottomSpot" id="23">23</div>
+                    <div class="spot bottomSpot" id="24">24</div>
                 </div>         
             </div>
-            <div id="middle" class="spot">M
+            <div id="middle" class="spot side">
                 <div id="0"></div>
                 <div id="25"></div>
             </div>
@@ -42,19 +52,23 @@
                     <div class="spot" id="12">12</div>
                 </div>
                 <div class="bottom right" id="bottomRight">
-                    <div class="spot" id="13">13</div>
-                    <div class="spot" id="14">14</div>
-                    <div class="spot" id="15">15</div>
-                    <div class="spot" id="16">16</div>
-                    <div class="spot" id="17">17</div>
-                    <div class="spot" id="18">18</div>
+                    <div class="spot bottomSpot" id="13">13</div>
+                    <div class="spot bottomSpot" id="14">14</div>
+                    <div class="spot bottomSpot" id="15">15</div>
+                    <div class="spot bottomSpot" id="16">16</div>
+                    <div class="spot bottomSpot" id="17">17</div>
+                    <div class="spot bottomSpot" id="18">18</div>
                 </div>
             </div>   
-        <div id="rightHome" class="spot side">
-            <div id="double">X2</div>
-            <div id="roll">Roll</div>
-            <div id="ok">OK</div>
-        </div>
+            <div id="rightHome" class="spot side">
+                <button id="roll">Roll</button>
+                <button id="ok">OK</button>
+                <button id="undo">Undo</button>
+                <button id="double">X2</button>
+            </div>
+        <!-- </div> -->
+        <!-- <div id="bottomBar" class="side topBottom"></div> -->
+
      
     </div>
     <script src="../js/backgammon.js"></script>
