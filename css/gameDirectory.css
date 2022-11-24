@@ -3,10 +3,11 @@ body{
 }
 
 header{
-    height:15vh;
+    height:20vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 h1{
@@ -14,11 +15,28 @@ h1{
 }
 
 main{
-    height:85vh;
+    height:60vh;
     display: flex;
     justify-content: center;
     align-items: center;
     font-style: italic;
+}
+
+footer{
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+}
+
+#logOut{
+    height: 40px;
+    font-style: italic;
+    border-radius: 20%;
+    padding:8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#logOut:hover{
+    background-color: #1c7EA6;
 }
 
 #iframeDiv{
@@ -27,18 +45,19 @@ main{
     justify-content: space-around;
 }
 
-.iframe{
+.img{
     width:250px;
     height:175px;
     border:none;
     border-radius: 3%;
-
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.iframe:hover{
+.img:hover{
     transform: scale(1.05);
     transition: transform 1s;
 }
+
+
 
 

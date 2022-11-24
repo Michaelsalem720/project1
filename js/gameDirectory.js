@@ -1,12 +1,13 @@
-let backgammonFrame = document.querySelector('#backgammon');
-let matchingGameFrame = document.querySelector('#matchingGame');
-backgammonFrame.addEventListener('click', directToBackgammon);
-matchingGameFrame.addEventListener('click', directToMatchingGame);
+let logOutButton = document.querySelector('#logOut');
+logOutButton.addEventListener('click', returnToHomePage);
+logOutButton.addEventListener('click', logOut);
 
-function directToBackgammon() {
-    window.location.href = '/project1/html/backgammon.html';
+document.querySelector('p').textContent = `Hey ${JSON.parse(sessionStorage.getItem('currentUser')).name}! Choose a game you'd like to try out!`;
+
+function logOut() {
+    sessionStorage.clear();
 }
 
-function directToMatchingGame() {
-    window.location.href = '/project1/html/matchingGame.html';
+function returnToHomePage(){
+    window.location.href='/project1/index.html';
 }

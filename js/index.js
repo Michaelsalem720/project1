@@ -20,6 +20,7 @@ function logInValidation() {
         let password = userInfo['password'].value;
         if (passwordText == password && usernameText == username); {
             window.location.href = '/project1/html/gameDirectory.html';
+            sessionStorage.setItem('currentUser', localStorage.getItem(usernameText));
         }
     } else {
         alert('User name and/or password are incorrect!')

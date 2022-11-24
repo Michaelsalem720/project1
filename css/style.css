@@ -30,6 +30,10 @@ main{
     border:blue solid;
 }
 
+input{
+    
+}
+
 .buttonDiv{
     display: flex;
     justify-content: space-around;
